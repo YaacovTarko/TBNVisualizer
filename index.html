@@ -26,15 +26,45 @@
 	<svg width="1024" height="120" id = "tbnNodes"></svg>
 	<div id="thresholds">
 	</div>
-	<svg width="1024" height="1024" id = "boundsTreenodes"></svg>
+	<svg width="1270" height="512" id = "boundsTreenodes"></svg>
 
 	<script src="index.js"></script>
 
 	<div id="editNodeModal" class="modal">
 	 <!-- Modal content -->
-	  	<div class="modal-content">
-	    <span class="close" id="closeModal">&times;</span>
-	    <p>Some text in the Modal..</p>
+		<div class="modal-content">
+		<span class="close" id="closeModal">&times;</span>
+		<h2>Node Properties:</h2>
+		<div>
+			<label> Threshold Value: </label>
+			<input type="text" id = "thresholdUpdate">
+		</div>
+		<h4> CPT Params: </h4>
+		<div>
+			<p>CPT A (input above threshold):</p>
+			<div>
+				<label> P(current = true | parent = true): </label>
+				<input type="text" id = "CPTAUpdateGivenTrue">
+			</div>
+			<div>
+				<label> P(current = true | parent = false): </label>
+				<input type="text" id = "CPTAUpdateGivenFalse">
+			</div>
+		</div>
+		<div>
+			<p>CPT B (input below threshold):</p>
+			<div>
+				<label> P(current = true | parent = true): </label>
+				<input type="text" id = "CPTBUpdateGivenTrue">
+			</div>
+			<div>
+				<label> P(current = true | parent = false): </label>
+				<input type="text" id = "CPTBUpdateGivenFalse">
+			</div>
+		</div>
+
+		<input type="submit" value = "Confirm Update" id = "confirmUpdate" >	
+
 	  </div>
 	</div>
 

@@ -258,15 +258,29 @@
 
 		// open the input modal by clicking on any of the TBN nodes
 		let inputModal = document.getElementById("editNodeModal");
-		circleEnter.on("click", function() {
-			inputModal.style.display = "block";
-		});
-		textEnter.on("click", function(){
-			inputModal.style.display = "block";
-		})
 		let closeButton = document.getElementById("closeModal");
-		closeButton.onclick = function(){
-			inputModal.style.display = "none";
+		let submitButton = document.getElementById("confirmUpdate");
+
+		let openModalFunction = function(d, i) {
+			if (i!=0){
+				// set thresholds and CPT prefills in the modal based on this node's values
+				inputModal.style.display = "block";
+			}
+		};
+		let closeModalFunction = function() {inputModal.style.display = "none";};
+
+		circleEnter.on("click", openModalFunction);
+		textEnter.on("click", openModalFunction);
+		closeButton.onclick = closeModalFunction;
+		submitButton.onclick = function(d, i) {
+			// update CPT params and thresholds based on values of modal inputs
+			closeModalFunction();
+		}
+		// close modal if you click elsewhere on the screen
+		window.onclick = function(event) {
+    		if (event.target == inputModal) {
+        		closeModalFunction();
+    		}	
 		}
 
 
@@ -297,7 +311,7 @@
 
 			btnCircleEnter.attr("cy", function(d, i) { let y = 60 * (d.depth+2); return y});
 			btnCircleEnter.attr("cx", function(d, i) {
-				const svgWidth = 1024;
+				const svgWidth = 1270;
 
 				// weird edge case
 				if (i==0) return svgWidth/2;
