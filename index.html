@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link rel="stylesheet" href="style.css">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<title>TBN Range Visualizer</title>
+</head>
+<body>
+	<div>
+		Num Nodes:
+		<select name="NumNodes" id="NumNodes">
+		  <option value="0">0</option>
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		  <option value="4">4</option>
+		  <option value="5">5</option>
+		  <option value="6">6</option>
+		</select>
+
+		Input Value: 
+		<input type="range" id="inputValue" name="input" min="0" max="10000">
+		<text id = "displayInputVal"> 0.5000 </text>
+
+	</div>
+	<svg width="1024" height="120" id = "tbnNodes"></svg>
+	<div id="thresholds">
+	</div>
+	<svg width="1024" height="1024" id = "boundsTreenodes"></svg>
+
+	<script src="index.js"></script>
+
+	<div id="editNodeModal" class="modal">
+	 <!-- Modal content -->
+	  	<div class="modal-content">
+	    <span class="close" id="closeModal">&times;</span>
+	    <p>Some text in the Modal..</p>
+	  </div>
+	</div>
+
+</body>
+</html>
